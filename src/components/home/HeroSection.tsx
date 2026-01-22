@@ -2,17 +2,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { SystemDiagram } from "./SystemDiagram";
+import { WaveBackground } from "./WaveBackground";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      {/* Animated Wave Background */}
+      <WaveBackground />
       
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-foreground/3 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-foreground/2 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-foreground/[0.02] rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-foreground/[0.01] rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
