@@ -25,37 +25,37 @@ export const TrustSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative">
+    <section className="py-16 lg:py-20 relative">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
           {/* Principles grid */}
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-3 gap-6 lg:gap-10">
             {principles.map((principle, index) => (
               <motion.div
                 key={principle.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                 className="text-center"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 mx-auto mb-5 flex items-center justify-center">
-                  <principle.icon className="w-6 h-6 text-foreground/60" strokeWidth={1.5} />
+                <div className="w-8 h-8 mx-auto mb-3 flex items-center justify-center">
+                  <principle.icon className="w-4 h-4 text-muted-foreground" strokeWidth={1.5} />
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+                <h3 className="font-display text-sm font-medium text-foreground mb-1">
                   {principle.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed hidden sm:block">
                   {principle.description}
                 </p>
               </motion.div>

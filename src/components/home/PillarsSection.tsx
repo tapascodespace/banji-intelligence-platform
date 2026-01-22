@@ -29,7 +29,7 @@ export const PillarsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative bg-card/30">
+    <section className="py-20 lg:py-28 relative bg-card/30">
       {/* Subtle background */}
       <div className="absolute inset-0 grid-pattern opacity-5" />
 
@@ -40,43 +40,40 @@ export const PillarsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-16"
+          className="text-center mb-14"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-6 block">
+          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4 block">
             What We're Building
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-            What BANJI
-            <span className="text-muted-foreground"> Will Enable</span>
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground leading-tight">
+            What BANJI Will Enable
           </h2>
         </motion.div>
 
         {/* Pillars Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.number}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-              className="group"
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              className="text-center"
             >
-              <div className="border-t border-border pt-8">
-                {/* Number */}
-                <span className="font-mono text-sm text-muted-foreground/50 mb-4 block">
-                  {pillar.number}
-                </span>
-                
-                {/* Title */}
-                <h3 className="font-display text-xl lg:text-2xl font-semibold text-foreground mb-3">
-                  {pillar.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
+              {/* Number */}
+              <span className="font-mono text-xs text-muted-foreground/50 mb-3 block">
+                {pillar.number}
+              </span>
+              
+              {/* Title */}
+              <h3 className="font-display text-base font-medium text-foreground mb-2">
+                {pillar.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {pillar.description}
+              </p>
             </motion.div>
           ))}
         </div>
