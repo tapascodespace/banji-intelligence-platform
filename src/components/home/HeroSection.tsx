@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SystemDiagram } from "./SystemDiagram";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background Grid */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+      <div className="absolute inset-0 grid-pattern opacity-20" />
       
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-foreground/3 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-foreground/2 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -21,7 +21,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="max-w-2xl lg:max-w-none text-center lg:text-left"
           >
             {/* Badge */}
             <motion.div
@@ -48,45 +48,35 @@ export const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
+              className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0"
             >
-              An AI-native operating system for quantitative research, trading, and deployment — built for speed, security, and explainability.
+              We're building an AI-native operating system for quantitative research and trading — designed for institutions operating at scale.
+            </motion.p>
+
+            {/* Qualifier */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm text-muted-foreground/70 mb-10"
+            >
+              Built for hedge funds, asset managers, and quantitative research teams.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Button variant="hero" size="xl">
                 Request a Demo
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <Button variant="heroOutline" size="xl">
-                <Play className="w-4 h-4" />
-                Enter Sandbox
+                Join Early Access
               </Button>
-            </motion.div>
-
-            {/* Trust Signal */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 pt-8 border-t border-border"
-            >
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">
-                Trusted by leading institutions
-              </p>
-              <div className="flex items-center gap-8 opacity-50">
-                {["Fund I", "Capital", "Research", "Trading"].map((name) => (
-                  <span key={name} className="font-display text-sm text-muted-foreground">
-                    {name}
-                  </span>
-                ))}
-              </div>
             </motion.div>
           </motion.div>
 
