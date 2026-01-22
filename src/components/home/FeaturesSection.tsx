@@ -11,45 +11,29 @@ const capabilities = [
     number: "01",
     title: "Adaptive Intelligence",
     subtitle: "Self-Optimizing Models",
-    description: "Machine learning systems that continuously adapt to shifting market regimes. No manual recalibration — your models evolve with the data.",
+    description: "Machine learning systems designed to adapt to shifting market regimes — evolving with the data, not against it.",
     image: intelligenceImg,
-    stats: [
-      { value: "47%", label: "Faster adaptation" },
-      { value: "Real-time", label: "Regime detection" },
-    ],
   },
   {
     number: "02",
     title: "Research Labs",
     subtitle: "Collaborative Infrastructure",
-    description: "Version-controlled notebooks, reproducible pipelines, and seamless handoffs from research to production. Your entire team, unified.",
+    description: "A unified environment for your entire team — from early-stage research to production-ready deployment.",
     image: researchImg,
-    stats: [
-      { value: "100%", label: "Reproducibility" },
-      { value: "Git-native", label: "Version control" },
-    ],
   },
   {
     number: "03",
     title: "Modular Hub",
     subtitle: "Plug-and-Play Architecture",
-    description: "A curated marketplace of quantitative models and components. Compose, customize, and deploy — without rewriting infrastructure.",
+    description: "A curated library of quantitative components. Compose, customize, and deploy — without rewriting infrastructure.",
     image: modularImg,
-    stats: [
-      { value: "200+", label: "Pre-built models" },
-      { value: "API-first", label: "Integration" },
-    ],
   },
   {
     number: "04",
     title: "Secure Execution",
     subtitle: "Zero-Trust Infrastructure",
-    description: "Complete audit trails, model lineage tracking, and explainability at every layer. Built for institutional compliance from day one.",
+    description: "Enterprise-grade security with complete audit trails and explainability at every layer. Built for institutional compliance.",
     image: securityImg,
-    stats: [
-      { value: "SOC2", label: "Compliant" },
-      { value: "E2E", label: "Encrypted" },
-    ],
   },
 ];
 
@@ -114,22 +98,8 @@ const CapabilityCard = ({
           {capability.description}
         </p>
         
-        {/* Stats */}
-        <div className="flex gap-8 pt-4">
-          {capability.stats.map((stat) => (
-            <div key={stat.label} className="space-y-1">
-              <div className="font-mono text-2xl font-bold text-foreground">
-                {stat.value}
-              </div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-        
         {/* Divider line */}
-        <div className="w-16 h-px bg-border" />
+        <div className="w-16 h-px bg-border mt-6" />
       </div>
     </motion.div>
   );

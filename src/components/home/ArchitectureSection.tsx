@@ -91,12 +91,6 @@ const LayerCard = ({ layer, index }: { layer: typeof layers[0]; index: number })
         <p className="text-muted-foreground leading-relaxed mb-6">
           {layer.description}
         </p>
-        <a href="#" className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors">
-          See it in action
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
       </div>
 
       {/* Code Block */}
