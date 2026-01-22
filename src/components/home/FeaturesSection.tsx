@@ -1,76 +1,135 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Brain, Layers, Box, Shield } from "lucide-react";
 
-const features = [
+import intelligenceImg from "@/assets/capability-intelligence.jpg";
+import researchImg from "@/assets/capability-research.jpg";
+import modularImg from "@/assets/capability-modular.jpg";
+import securityImg from "@/assets/capability-security.jpg";
+
+const capabilities = [
   {
-    icon: Brain,
-    title: "Adaptive Intelligence Engine",
-    description: "Self-optimizing models that learn from market regimes and adapt strategies in real-time without manual intervention.",
-    gradient: "from-primary/20 to-primary/5",
+    number: "01",
+    title: "Adaptive Intelligence",
+    subtitle: "Self-Optimizing Models",
+    description: "Machine learning systems that continuously adapt to shifting market regimes. No manual recalibration — your models evolve with the data.",
+    image: intelligenceImg,
+    stats: [
+      { value: "47%", label: "Faster adaptation" },
+      { value: "Real-time", label: "Regime detection" },
+    ],
   },
   {
-    icon: Layers,
-    title: "Unified Research Labs",
-    description: "Collaborative notebooks with version control, reproducible pipelines, and seamless transition from research to production.",
-    gradient: "from-primary/15 to-transparent",
+    number: "02",
+    title: "Research Labs",
+    subtitle: "Collaborative Infrastructure",
+    description: "Version-controlled notebooks, reproducible pipelines, and seamless handoffs from research to production. Your entire team, unified.",
+    image: researchImg,
+    stats: [
+      { value: "100%", label: "Reproducibility" },
+      { value: "Git-native", label: "Version control" },
+    ],
   },
   {
-    icon: Box,
-    title: "Modular Model Hub",
-    description: "A marketplace of pre-built quantitative models with plug-and-play architecture. Deploy, combine, and scale instantly.",
-    gradient: "from-primary/10 to-transparent",
+    number: "03",
+    title: "Modular Hub",
+    subtitle: "Plug-and-Play Architecture",
+    description: "A curated marketplace of quantitative models and components. Compose, customize, and deploy — without rewriting infrastructure.",
+    image: modularImg,
+    stats: [
+      { value: "200+", label: "Pre-built models" },
+      { value: "API-first", label: "Integration" },
+    ],
   },
   {
-    icon: Shield,
-    title: "Secure Execution & Monitoring",
-    description: "Zero-trust infrastructure with real-time audit trails, model lineage tracking, and complete explainability at every layer.",
-    gradient: "from-primary/20 to-primary/5",
+    number: "04",
+    title: "Secure Execution",
+    subtitle: "Zero-Trust Infrastructure",
+    description: "Complete audit trails, model lineage tracking, and explainability at every layer. Built for institutional compliance from day one.",
+    image: securityImg,
+    stats: [
+      { value: "SOC2", label: "Compliant" },
+      { value: "E2E", label: "Encrypted" },
+    ],
   },
 ];
 
-const FeatureCard = ({ feature, index }: { feature: typeof features[0]; index: number }) => {
+const CapabilityCard = ({ 
+  capability, 
+  index, 
+  isReversed 
+}: { 
+  capability: typeof capabilities[0]; 
+  index: number; 
+  isReversed: boolean;
+}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative"
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${isReversed ? 'lg:grid-flow-dense' : ''}`}
     >
-      {/* Card */}
-      <div className="relative h-full bg-card border border-border rounded-lg p-8 card-hover overflow-hidden">
-        {/* Background gradient */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-        
-        {/* Content */}
-        <div className="relative z-10">
-          {/* Icon */}
-          <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
-            <feature.icon className="w-6 h-6 text-primary" />
-          </div>
-
-          {/* Title */}
-          <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-            {feature.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-muted-foreground leading-relaxed">
-            {feature.description}
-          </p>
-
-          {/* Hover indicator */}
-          <div className="mt-6 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="text-sm font-medium">Learn more</span>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+      {/* Image */}
+      <div className={`relative group ${isReversed ? 'lg:col-start-2' : ''}`}>
+        <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+          {/* Image with overlay */}
+          <img 
+            src={capability.image} 
+            alt={capability.title}
+            className="w-full h-full object-cover grayscale group-hover:grayscale-[50%] transition-all duration-700"
+          />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
+          
+          {/* Number badge */}
+          <div className="absolute top-6 left-6">
+            <span className="font-mono text-6xl font-bold text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
+              {capability.number}
+            </span>
           </div>
         </div>
+        
+        {/* Decorative corner */}
+        <div className="absolute -bottom-3 -right-3 w-24 h-24 border border-border/50 rounded-lg -z-10" />
+      </div>
+
+      {/* Content */}
+      <div className={`space-y-6 ${isReversed ? 'lg:col-start-1' : ''}`}>
+        {/* Subtitle */}
+        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
+          {capability.subtitle}
+        </span>
+        
+        {/* Title */}
+        <h3 className="font-display text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+          {capability.title}
+        </h3>
+        
+        {/* Description */}
+        <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+          {capability.description}
+        </p>
+        
+        {/* Stats */}
+        <div className="flex gap-8 pt-4">
+          {capability.stats.map((stat) => (
+            <div key={stat.label} className="space-y-1">
+              <div className="font-mono text-2xl font-bold text-foreground">
+                {stat.value}
+              </div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Divider line */}
+        <div className="w-16 h-px bg-border" />
       </div>
     </motion.div>
   );
@@ -81,9 +140,9 @@ export const FeaturesSection = () => {
   const isInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="py-24 lg:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+    <section className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 grid-pattern opacity-10" />
       
       <div className="container mx-auto px-6 relative">
         {/* Section Header */}
@@ -92,23 +151,27 @@ export const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="max-w-2xl mb-20 lg:mb-28"
         >
-          <span className="text-xs text-primary uppercase tracking-widest font-medium mb-4 block">
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4 block">
             Core Capabilities
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Built for Quantitative Excellence
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1]">
+            Quantitative
+            <br />
+            <span className="text-muted-foreground">Excellence.</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            A modular operating system that unifies every stage of the quantitative workflow — from data ingestion to model deployment.
-          </p>
         </motion.div>
 
-        {/* Feature Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.title} feature={feature} index={index} />
+        {/* Capabilities */}
+        <div className="space-y-24 lg:space-y-32">
+          {capabilities.map((capability, index) => (
+            <CapabilityCard 
+              key={capability.number} 
+              capability={capability} 
+              index={index}
+              isReversed={index % 2 === 1}
+            />
           ))}
         </div>
 
@@ -116,20 +179,17 @@ export const FeaturesSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-24 lg:mt-32 text-center"
         >
-          <div className="accent-line max-w-xs mx-auto mb-8" />
-          <p className="text-muted-foreground mb-6">
-            Ready to explore the full platform?
-          </p>
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-border to-transparent mx-auto mb-8" />
           <a
             href="#product"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+            className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground font-medium transition-colors group"
           >
-            View Product Architecture
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <span className="text-sm uppercase tracking-widest">Explore Full Architecture</span>
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </motion.div>
