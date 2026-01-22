@@ -207,17 +207,6 @@ export const SystemDiagram = () => {
         })}
       </svg>
 
-      {/* Center label */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.8, duration: 0.6 }}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
-      >
-        <div className="font-display text-[10px] text-foreground/80 font-semibold tracking-[0.3em] uppercase">
-          BANJI
-        </div>
-      </motion.div>
     </div>
   );
 };
