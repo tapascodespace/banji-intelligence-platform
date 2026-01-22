@@ -10,6 +10,7 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/animations/ScrollAnimations";
 import { MovingDots } from "@/components/animations/BackgroundEffects";
+import { SectionDivider } from "@/components/home/SectionDivider";
 
 const Index = () => {
   return (
@@ -19,20 +20,41 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        
+        <SectionDivider variant="gradient" />
+        
         <section id="problem">
           <ProblemSection />
         </section>
+        
+        <SectionDivider variant="dots" />
+        
         <section id="market">
           <MarketSection />
         </section>
+        
+        <SectionDivider variant="line" />
+        
         <section id="vision">
           <VisionSection />
         </section>
+        
+        <SectionDivider variant="glow" />
+        
         <section id="capabilities">
           <FeaturesSection />
         </section>
+        
+        <SectionDivider variant="gradient" />
+        
         <PillarsSection />
+        
+        <SectionDivider variant="dots" />
+        
         <TrustSection />
+        
+        <SectionDivider variant="glow" />
+        
         <FinalCTASection />
       </main>
       <Footer />
