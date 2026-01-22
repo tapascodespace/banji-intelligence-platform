@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import banjiLogo from "@/assets/banji-logo.png";
 
 const navItems = [
   { 
@@ -30,10 +31,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-              <span className="font-display font-bold text-primary-foreground text-sm">B</span>
-            </div>
+          <a href="/" className="flex items-center gap-3">
+            <img src={banjiLogo} alt="BANJI" className="w-9 h-9 object-contain" />
             <span className="font-display font-semibold text-lg text-foreground tracking-tight">BANJI</span>
           </a>
 

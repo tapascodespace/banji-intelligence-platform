@@ -28,22 +28,19 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
-                Enterprise-Grade Infrastructure
+              <span className="w-2 h-2 rounded-full bg-foreground animate-pulse" />
+              <span className="text-sm text-foreground font-display font-semibold tracking-wide">
+                BANJI
               </span>
             </motion.div>
 
             {/* Headline */}
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
-              <span className="text-foreground">BANJI</span>
-              <span className="text-muted-foreground"> — </span>
+              <span className="text-foreground">Infrastructure for</span>
               <br />
-              <span className="text-gradient-primary">Infrastructure for</span>
-              <br />
-              <span className="text-foreground">Thinking Markets</span>
+              <span className="text-muted-foreground">Thinking Markets</span>
             </h1>
 
             {/* Subheading */}
