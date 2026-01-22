@@ -7,10 +7,14 @@ import { PillarsSection } from "@/components/home/PillarsSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollProgress } from "@/components/animations/ScrollAnimations";
+import { MovingDots } from "@/components/animations/BackgroundEffects";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <ScrollProgress />
+      <MovingDots />
       <Navbar />
       <main>
         <HeroSection />
