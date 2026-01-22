@@ -6,7 +6,7 @@ export const VisionSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative">
+    <section className="py-32 lg:py-40 relative">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}

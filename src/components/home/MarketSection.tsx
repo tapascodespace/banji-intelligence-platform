@@ -13,7 +13,7 @@ export const MarketSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative bg-card/30">
+    <section className="py-32 lg:py-40 relative bg-card/30">
       <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
 
       <div className="container mx-auto px-6 relative">

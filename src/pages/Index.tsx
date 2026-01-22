@@ -4,6 +4,7 @@ import { ProblemSection } from "@/components/home/ProblemSection";
 import { MarketSection } from "@/components/home/MarketSection";
 import { VisionSection } from "@/components/home/VisionSection";
 import { PillarsSection } from "@/components/home/PillarsSection";
+import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Footer } from "@/components/layout/Footer";
@@ -28,8 +29,9 @@ const Index = () => {
           <VisionSection />
         </section>
         <section id="capabilities">
-          <PillarsSection />
+          <FeaturesSection />
         </section>
+        <PillarsSection />
         <TrustSection />
         <FinalCTASection />
       </main>

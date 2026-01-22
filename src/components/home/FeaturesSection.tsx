@@ -110,7 +110,7 @@ export const FeaturesSection = () => {
   const isInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-32 lg:py-40 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 grid-pattern opacity-10" />
       

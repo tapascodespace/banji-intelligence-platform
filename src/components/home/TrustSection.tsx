@@ -25,7 +25,7 @@ export const TrustSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-16 lg:py-20 relative border-t border-border/30">
+    <section className="py-24 lg:py-32 relative border-t border-border/30">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
