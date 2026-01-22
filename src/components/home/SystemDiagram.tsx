@@ -1,130 +1,221 @@
 import { motion } from "framer-motion";
-import { Database, Brain, Activity, Shield, Zap, Layers } from "lucide-react";
 
-const nodes = [
-  { id: "data", label: "Data Layer", icon: Database, x: 50, y: 20, delay: 0 },
-  { id: "research", label: "Research Labs", icon: Layers, x: 20, y: 45, delay: 0.1 },
-  { id: "models", label: "Model Hub", icon: Brain, x: 80, y: 45, delay: 0.2 },
-  { id: "execution", label: "Execution", icon: Zap, x: 35, y: 70, delay: 0.3 },
-  { id: "monitoring", label: "Monitoring", icon: Activity, x: 65, y: 70, delay: 0.4 },
-  { id: "security", label: "Security", icon: Shield, x: 50, y: 90, delay: 0.5 },
+// Neural network node positions - symmetrical brain-like layout
+const neuralNodes = [
+  // Center core
+  { id: "core", x: 50, y: 50, size: 12, layer: "core" },
+  
+  // Inner ring - 6 nodes, hexagonal symmetry
+  { id: "inner1", x: 50, y: 25, size: 6, layer: "inner" },
+  { id: "inner2", x: 71.6, y: 37.5, size: 6, layer: "inner" },
+  { id: "inner3", x: 71.6, y: 62.5, size: 6, layer: "inner" },
+  { id: "inner4", x: 50, y: 75, size: 6, layer: "inner" },
+  { id: "inner5", x: 28.4, y: 62.5, size: 6, layer: "inner" },
+  { id: "inner6", x: 28.4, y: 37.5, size: 6, layer: "inner" },
+  
+  // Outer ring - 12 nodes, symmetrical
+  { id: "outer1", x: 50, y: 8, size: 4, layer: "outer" },
+  { id: "outer2", x: 68, y: 14, size: 3, layer: "outer" },
+  { id: "outer3", x: 82, y: 28, size: 4, layer: "outer" },
+  { id: "outer4", x: 88, y: 50, size: 3, layer: "outer" },
+  { id: "outer5", x: 82, y: 72, size: 4, layer: "outer" },
+  { id: "outer6", x: 68, y: 86, size: 3, layer: "outer" },
+  { id: "outer7", x: 50, y: 92, size: 4, layer: "outer" },
+  { id: "outer8", x: 32, y: 86, size: 3, layer: "outer" },
+  { id: "outer9", x: 18, y: 72, size: 4, layer: "outer" },
+  { id: "outer10", x: 12, y: 50, size: 3, layer: "outer" },
+  { id: "outer11", x: 18, y: 28, size: 4, layer: "outer" },
+  { id: "outer12", x: 32, y: 14, size: 3, layer: "outer" },
 ];
 
+// Connections forming neural pathways
 const connections = [
-  { from: "data", to: "research" },
-  { from: "data", to: "models" },
-  { from: "research", to: "execution" },
-  { from: "models", to: "execution" },
-  { from: "models", to: "monitoring" },
-  { from: "execution", to: "monitoring" },
-  { from: "execution", to: "security" },
-  { from: "monitoring", to: "security" },
+  // Core to inner ring
+  { from: "core", to: "inner1" },
+  { from: "core", to: "inner2" },
+  { from: "core", to: "inner3" },
+  { from: "core", to: "inner4" },
+  { from: "core", to: "inner5" },
+  { from: "core", to: "inner6" },
+  
+  // Inner ring interconnections
+  { from: "inner1", to: "inner2" },
+  { from: "inner2", to: "inner3" },
+  { from: "inner3", to: "inner4" },
+  { from: "inner4", to: "inner5" },
+  { from: "inner5", to: "inner6" },
+  { from: "inner6", to: "inner1" },
+  
+  // Inner to outer connections
+  { from: "inner1", to: "outer1" },
+  { from: "inner1", to: "outer2" },
+  { from: "inner1", to: "outer12" },
+  { from: "inner2", to: "outer2" },
+  { from: "inner2", to: "outer3" },
+  { from: "inner2", to: "outer4" },
+  { from: "inner3", to: "outer4" },
+  { from: "inner3", to: "outer5" },
+  { from: "inner3", to: "outer6" },
+  { from: "inner4", to: "outer6" },
+  { from: "inner4", to: "outer7" },
+  { from: "inner4", to: "outer8" },
+  { from: "inner5", to: "outer8" },
+  { from: "inner5", to: "outer9" },
+  { from: "inner5", to: "outer10" },
+  { from: "inner6", to: "outer10" },
+  { from: "inner6", to: "outer11" },
+  { from: "inner6", to: "outer12" },
 ];
 
 export const SystemDiagram = () => {
   const getNodePosition = (id: string) => {
-    const node = nodes.find(n => n.id === id);
-    return node ? { x: node.x, y: node.y } : { x: 0, y: 0 };
+    const node = neuralNodes.find(n => n.id === id);
+    return node ? { x: node.x, y: node.y } : { x: 50, y: 50 };
   };
 
   return (
-    <div className="relative aspect-square w-full max-w-lg mx-auto">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
+    <div className="relative aspect-square w-full max-w-xl mx-auto">
+      {/* Subtle ambient glow */}
+      <div className="absolute inset-[15%] bg-foreground/5 rounded-full blur-3xl" />
+      <div className="absolute inset-[30%] bg-foreground/3 rounded-full blur-2xl animate-pulse-glow" />
       
-      {/* SVG for connections */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
         <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
-            <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
+          {/* Subtle gradient for connections */}
+          <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--foreground))" stopOpacity="0.03" />
+            <stop offset="50%" stopColor="hsl(var(--foreground))" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="hsl(var(--foreground))" stopOpacity="0.03" />
           </linearGradient>
+          
+          {/* Radial gradient for nodes */}
+          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="hsl(var(--foreground))" stopOpacity="0.6" />
+            <stop offset="70%" stopColor="hsl(var(--foreground))" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="hsl(var(--foreground))" stopOpacity="0" />
+          </radialGradient>
+          
+          <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="hsl(var(--foreground))" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="hsl(var(--foreground))" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="hsl(var(--foreground))" stopOpacity="0" />
+          </radialGradient>
         </defs>
         
+        {/* Connection lines */}
         {connections.map((conn, i) => {
           const from = getNodePosition(conn.from);
           const to = getNodePosition(conn.to);
           return (
             <motion.line
-              key={i}
+              key={`conn-${i}`}
               x1={from.x}
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="url(#lineGradient)"
-              strokeWidth="0.3"
+              stroke="url(#neuralGradient)"
+              strokeWidth="0.4"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.5 + i * 0.1 }}
+              transition={{ duration: 1.2, delay: 0.3 + i * 0.03 }}
             />
           );
         })}
 
-        {/* Animated data particles */}
-        {connections.slice(0, 3).map((conn, i) => {
+        {/* Neural nodes */}
+        {neuralNodes.map((node, i) => (
+          <motion.g key={node.id}>
+            {/* Outer glow */}
+            <motion.circle
+              cx={node.x}
+              cy={node.y}
+              r={node.size * 1.5}
+              fill={node.layer === "core" ? "url(#coreGlow)" : "url(#nodeGlow)"}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 + i * 0.05 }}
+            />
+            
+            {/* Core node */}
+            <motion.circle
+              cx={node.x}
+              cy={node.y}
+              r={node.size * 0.4}
+              fill="hsl(var(--foreground))"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: node.layer === "core" ? 1 : node.layer === "inner" ? 0.8 : 0.5,
+                scale: 1 
+              }}
+              transition={{ duration: 0.5, delay: 0.6 + i * 0.04 }}
+            />
+          </motion.g>
+        ))}
+
+        {/* Animated pulse signals traveling along connections */}
+        {[0, 1, 2, 3, 4, 5].map((idx) => {
+          const conn = connections[idx * 4];
           const from = getNodePosition(conn.from);
           const to = getNodePosition(conn.to);
           return (
             <motion.circle
-              key={`particle-${i}`}
+              key={`pulse-${idx}`}
               r="0.8"
-              fill="hsl(var(--primary))"
+              fill="hsl(var(--foreground))"
               initial={{ cx: from.x, cy: from.y, opacity: 0 }}
               animate={{
-                cx: [from.x, to.x],
-                cy: [from.y, to.y],
-                opacity: [0, 1, 0],
+                cx: [from.x, to.x, from.x],
+                cy: [from.y, to.y, from.y],
+                opacity: [0, 0.8, 0],
               }}
               transition={{
-                duration: 2,
-                delay: 1 + i * 0.5,
+                duration: 3,
+                delay: idx * 0.8,
                 repeat: Infinity,
-                repeatDelay: 1,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+        
+        {/* Reverse direction pulses for visual interest */}
+        {[2, 4, 6].map((idx) => {
+          const conn = connections[idx * 3 + 10];
+          if (!conn) return null;
+          const from = getNodePosition(conn.from);
+          const to = getNodePosition(conn.to);
+          return (
+            <motion.circle
+              key={`pulse-rev-${idx}`}
+              r="0.6"
+              fill="hsl(var(--foreground))"
+              opacity={0.6}
+              initial={{ cx: to.x, cy: to.y, opacity: 0 }}
+              animate={{
+                cx: [to.x, from.x, to.x],
+                cy: [to.y, from.y, to.y],
+                opacity: [0, 0.6, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                delay: 1 + idx * 0.6,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
             />
           );
         })}
       </svg>
 
-      {/* Nodes */}
-      {nodes.map((node) => (
-        <motion.div
-          key={node.id}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 + node.delay }}
-          className="absolute transform -translate-x-1/2 -translate-y-1/2"
-          style={{ left: `${node.x}%`, top: `${node.y}%` }}
-        >
-          <div className="group relative">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-primary/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            {/* Node card */}
-            <div className="relative bg-card border border-border rounded-lg p-3 hover:border-primary/30 transition-colors duration-300">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded bg-muted flex items-center justify-center">
-                  <node.icon className="w-4 h-4 text-primary" />
-                </div>
-                <span className="text-xs font-medium text-foreground whitespace-nowrap hidden sm:block">
-                  {node.label}
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-
       {/* Center label */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.8, duration: 0.6 }}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
       >
-        <div className="font-display text-xs text-primary font-semibold tracking-widest uppercase">
-          BANJI OS
+        <div className="font-display text-[10px] text-foreground/80 font-semibold tracking-[0.3em] uppercase">
+          BANJI
         </div>
       </motion.div>
     </div>
