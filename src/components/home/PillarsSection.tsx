@@ -34,7 +34,7 @@ export const PillarsSection = () => {
   const gridY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 relative bg-card/30 overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 relative bg-card/30 overflow-hidden">
       {/* Animated grid background */}
       <motion.div 
         style={{ y: gridY }}

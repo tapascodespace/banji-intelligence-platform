@@ -17,7 +17,7 @@ export const ProblemSection = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden">
       {/* Parallax background element */}
       <motion.div 
         style={{ y: backgroundY }}
