@@ -16,33 +16,33 @@ export const ProblemSection = () => {
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-2xl mx-auto text-center"
+          transition={{ duration: 0.7 }}
+          className="max-w-[560px] mx-auto text-center"
         >
           {/* Section label */}
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4 block">
+          <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground font-medium mb-5 block">
             The Reality
           </span>
 
           {/* Headline */}
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground leading-tight mb-10">
+          <h2 className="text-[clamp(24px,3.5vw,40px)] font-medium text-foreground leading-[1.15] tracking-[-0.02em] mb-10">
             Modern Quantitative Finance Is Built on Fragmentation
           </h2>
 
           {/* Problem bullets */}
-          <div className="space-y-4 text-left max-w-lg mx-auto">
+          <div className="space-y-4 text-left max-w-[440px] mx-auto">
             {problems.map((problem, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
                 className="flex items-start gap-3"
               >
-                <div className="w-1 h-1 rounded-full bg-muted-foreground mt-2.5 flex-shrink-0" />
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <div className="w-[3px] h-[3px] rounded-full bg-muted-foreground/60 mt-[9px] flex-shrink-0" />
+                <p className="text-[15px] leading-[1.65] text-muted-foreground">
                   {problem}
                 </p>
               </motion.div>
