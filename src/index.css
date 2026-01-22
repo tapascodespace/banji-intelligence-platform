@@ -8,72 +8,72 @@
 
 @layer base {
   :root {
-    /* Core palette - midnight institutional */
-    --background: 216 39% 10%;
-    --background-deep: 218 54% 8%;
-    --foreground: 210 43% 93%;
+    /* Core palette - premium monochrome */
+    --background: 0 0% 4%;
+    --background-deep: 0 0% 2%;
+    --foreground: 0 0% 98%;
 
     /* Surface layers */
-    --card: 218 54% 8%;
-    --card-foreground: 210 43% 93%;
-    --popover: 218 54% 12%;
-    --popover-foreground: 210 43% 93%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Accent - Gold Amber (financial authority) */
-    --primary: 38 92% 50%;
-    --primary-foreground: 218 54% 8%;
+    /* Primary - Pure white accent */
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
 
     /* Secondary surfaces */
-    --secondary: 216 30% 15%;
-    --secondary-foreground: 210 43% 93%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
     /* Muted elements */
-    --muted: 215 20% 20%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
 
     /* Accent for highlights */
-    --accent: 38 92% 50%;
-    --accent-foreground: 218 54% 8%;
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 4%;
 
     /* System states */
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 43% 93%;
+    --destructive-foreground: 0 0% 98%;
 
     /* Borders & inputs */
-    --border: 216 20% 20%;
-    --input: 216 20% 18%;
-    --ring: 38 92% 50%;
+    --border: 0 0% 18%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 100%;
 
     --radius: 0.375rem;
 
     /* Custom tokens */
-    --glow-primary: 38 92% 50%;
-    --surface-elevated: 216 30% 12%;
-    --text-secondary: 215 16% 65%;
-    --grid-line: 216 20% 18%;
+    --glow-primary: 0 0% 100%;
+    --surface-elevated: 0 0% 10%;
+    --text-secondary: 0 0% 55%;
+    --grid-line: 0 0% 12%;
   }
 
   .dark {
-    --background: 216 39% 10%;
-    --background-deep: 218 54% 8%;
-    --foreground: 210 43% 93%;
-    --card: 218 54% 8%;
-    --card-foreground: 210 43% 93%;
-    --popover: 218 54% 12%;
-    --popover-foreground: 210 43% 93%;
-    --primary: 38 92% 50%;
-    --primary-foreground: 218 54% 8%;
-    --secondary: 216 30% 15%;
-    --secondary-foreground: 210 43% 93%;
-    --muted: 215 20% 20%;
-    --muted-foreground: 215 16% 65%;
-    --accent: 38 92% 50%;
-    --accent-foreground: 218 54% 8%;
+    --background: 0 0% 4%;
+    --background-deep: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 43% 93%;
-    --border: 216 20% 20%;
-    --input: 216 20% 18%;
-    --ring: 38 92% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 100%;
   }
 }
 
