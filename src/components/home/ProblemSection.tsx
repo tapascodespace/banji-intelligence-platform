@@ -17,39 +17,39 @@ export const ProblemSection = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden">
+    <section ref={sectionRef} className="py-40 lg:py-48 relative overflow-hidden">
       {/* Parallax background element */}
       <motion.div 
         style={{ y: backgroundY }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-foreground/[0.01] blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-foreground/[0.008] blur-[120px] pointer-events-none"
       />
       
       <div className="container mx-auto px-6 relative">
-        <div className="max-w-[560px] mx-auto text-center">
-          {/* Section label */}
+        <div className="max-w-[600px] mx-auto text-center">
+          {/* Section label - 15px */}
           <motion.span 
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground font-medium mb-5 block"
+            className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-8 block"
           >
             The Reality
           </motion.span>
 
-          {/* Headline with character animation */}
+          {/* H2 - 44px */}
           <motion.h2 
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[clamp(24px,3.5vw,40px)] font-medium text-foreground leading-[1.15] tracking-[-0.02em] mb-10"
+            className="text-foreground mb-12"
           >
             Modern Quantitative Finance Is Built on Fragmentation
           </motion.h2>
 
-          {/* Problem bullets with stagger */}
-          <div className="space-y-4 text-left max-w-[440px] mx-auto">
+          {/* Problem bullets with stagger - 18px body */}
+          <div className="space-y-5 text-left max-w-[480px] mx-auto">
             {problems.map((problem, index) => (
               <motion.div
                 key={index}
@@ -61,16 +61,16 @@ export const ProblemSection = () => {
                   delay: 0.2 + index * 0.1,
                   ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="flex items-start gap-3"
+                className="flex items-start gap-4"
               >
                 <motion.div 
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                  className="w-[3px] h-[3px] rounded-full bg-muted-foreground/60 mt-[9px] flex-shrink-0" 
+                  className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-[10px] flex-shrink-0" 
                 />
-                <p className="text-[15px] leading-[1.65] text-muted-foreground">
+                <p className="text-muted-foreground">
                   {problem}
                 </p>
               </motion.div>

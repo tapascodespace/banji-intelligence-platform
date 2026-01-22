@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium ring-offset-background transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -15,17 +15,18 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Premium variants
-        hero: "bg-foreground text-background text-[14px] font-medium hover:bg-foreground/90",
-        heroOutline: "border border-[rgba(255,255,255,0.25)] text-foreground text-[14px] font-medium hover:border-[rgba(255,255,255,0.4)] bg-transparent",
-        minimal: "text-muted-foreground hover:text-foreground text-[14px] font-medium",
+        // Premium CTA variants - 16px vertical padding, balanced horizontal
+        hero: "bg-foreground text-background text-[15px] font-semibold hover:bg-foreground/90 shadow-[0_2px_8px_-2px_rgba(255,255,255,0.15)] hover:shadow-[0_4px_16px_-4px_rgba(255,255,255,0.2)]",
+        heroOutline: "border border-foreground/20 text-foreground text-[15px] font-medium hover:border-foreground/40 hover:bg-foreground/5 bg-transparent",
+        minimal: "text-muted-foreground hover:text-foreground text-[15px] font-medium",
       },
       size: {
-        default: "h-10 px-5",
-        sm: "h-9 px-4 text-[13px]",
-        lg: "h-11 px-6",
-        xl: "h-[44px] px-7",
-        icon: "h-10 w-10",
+        default: "h-11 px-6",
+        sm: "h-10 px-5 text-[14px]",
+        lg: "h-12 px-7",
+        // Premium CTA size with 16px vertical padding
+        xl: "h-[52px] px-8",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {

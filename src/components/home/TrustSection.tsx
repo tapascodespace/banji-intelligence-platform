@@ -25,17 +25,17 @@ export const TrustSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative border-t border-border/30">
+    <section className="py-32 lg:py-40 relative border-t border-border/20">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-[720px] mx-auto"
+          className="max-w-[800px] mx-auto"
         >
-          {/* Principles grid */}
-          <div className="grid grid-cols-3 gap-8 lg:gap-12">
+          {/* Principles grid - evenly spaced */}
+          <div className="grid grid-cols-3 gap-12 lg:gap-16">
             {principles.map((principle, index) => (
               <motion.div
                 key={principle.title}
@@ -45,17 +45,17 @@ export const TrustSection = () => {
                 className="text-center"
               >
                 {/* Icon */}
-                <div className="w-8 h-8 mx-auto mb-3 flex items-center justify-center">
-                  <principle.icon className="w-4 h-4 text-muted-foreground/70" strokeWidth={1.5} />
+                <div className="w-10 h-10 mx-auto mb-5 flex items-center justify-center">
+                  <principle.icon className="w-5 h-5 text-muted-foreground/60" strokeWidth={1.5} />
                 </div>
                 
-                {/* Title */}
-                <h3 className="text-[13px] font-medium text-foreground mb-1">
+                {/* Title - H3 scale adjusted */}
+                <h3 className="text-[18px] font-medium text-foreground mb-2">
                   {principle.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-[12px] leading-[1.5] text-muted-foreground hidden sm:block">
+                <p className="text-[15px] leading-[1.6] text-muted-foreground hidden sm:block">
                   {principle.description}
                 </p>
               </motion.div>
