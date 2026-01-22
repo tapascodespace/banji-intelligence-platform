@@ -1,9 +1,11 @@
 import { Navbar } from "@/components/navigation/Navbar";
 import { HeroSection } from "@/components/home/HeroSection";
-import { KPIStrip } from "@/components/home/KPIStrip";
-import { FeaturesSection } from "@/components/home/FeaturesSection";
-import { ArchitectureSection } from "@/components/home/ArchitectureSection";
-import { CTASection } from "@/components/home/CTASection";
+import { ProblemSection } from "@/components/home/ProblemSection";
+import { MarketSection } from "@/components/home/MarketSection";
+import { VisionSection } from "@/components/home/VisionSection";
+import { PillarsSection } from "@/components/home/PillarsSection";
+import { TrustSection } from "@/components/home/TrustSection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Footer } from "@/components/layout/Footer";
 
 const Index = () => {
@@ -12,10 +14,20 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <KPIStrip />
-        <FeaturesSection />
-        <ArchitectureSection />
-        <CTASection />
+        <section id="problem">
+          <ProblemSection />
+        </section>
+        <section id="market">
+          <MarketSection />
+        </section>
+        <section id="vision">
+          <VisionSection />
+        </section>
+        <section id="capabilities">
+          <PillarsSection />
+        </section>
+        <TrustSection />
+        <FinalCTASection />
       </main>
       <Footer />
     </div>

@@ -1,30 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import banjiLogo from "@/assets/banji-logo.png";
 
 const navItems = [
-  { 
-    label: "Product", 
-    href: "#product",
-    submenu: [
-      { label: "Data Ingestion", href: "#data" },
-      { label: "Research Labs", href: "#research" },
-      { label: "Model Hub", href: "#models" },
-      { label: "Execution Engine", href: "#execution" },
-    ]
-  },
-  { label: "Security", href: "#security" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Developers", href: "#developers" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
+  { label: "Problem", href: "#problem" },
+  { label: "Market", href: "#market" },
+  { label: "Vision", href: "#vision" },
+  { label: "Capabilities", href: "#capabilities" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -39,45 +27,13 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <div
+              <a
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => item.submenu && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                href={item.href}
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <a
-                  href={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                  {item.submenu && <ChevronDown className="w-3 h-3" />}
-                </a>
-                
-                {/* Dropdown */}
-                <AnimatePresence>
-                  {item.submenu && activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-0 pt-2"
-                    >
-                      <div className="bg-popover border border-border rounded-lg shadow-xl py-2 min-w-[180px]">
-                        {item.submenu.map((subItem) => (
-                          <a
-                            key={subItem.label}
-                            href={subItem.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                          >
-                            {subItem.label}
-                          </a>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                {item.label}
+              </a>
             ))}
           </div>
 
