@@ -10,16 +10,22 @@ import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/animations/ScrollAnimations";
 import { MovingDots } from "@/components/animations/BackgroundEffects";
+import { GrainOverlay } from "@/components/animations/GrainOverlay";
 import { SectionDivider } from "@/components/home/SectionDivider";
+import { FloatingSideNav } from "@/components/navigation/FloatingSideNav";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GrainOverlay />
       <ScrollProgress />
       <MovingDots />
+      <FloatingSideNav />
       <Navbar />
       <main>
-        <HeroSection />
+        <section id="hero">
+          <HeroSection />
+        </section>
         
         <SectionDivider variant="gradient" />
         
