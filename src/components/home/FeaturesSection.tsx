@@ -37,6 +37,34 @@ const capabilities = [
   },
 ];
 
+// Corner Accent Component
+const CornerAccent = ({ position }: { position: "top-left" | "top-right" | "bottom-left" | "bottom-right" }) => {
+  const positionClasses = {
+    "top-left": "top-0 left-0",
+    "top-right": "top-0 right-0 rotate-90",
+    "bottom-left": "bottom-0 left-0 -rotate-90",
+    "bottom-right": "bottom-0 right-0 rotate-180",
+  };
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={`absolute ${positionClasses[position]} w-8 h-8 pointer-events-none`}
+    >
+      <svg viewBox="0 0 32 32" className="w-full h-full">
+        <path
+          d="M0 0 L12 0 L12 1 L1 1 L1 12 L0 12 Z"
+          fill="currentColor"
+          className="text-primary/20"
+        />
+      </svg>
+    </motion.div>
+  );
+};
+
 const CapabilityCard = ({ 
   capability, 
   index, 
@@ -60,6 +88,12 @@ const CapabilityCard = ({
       {/* Image */}
       <div className={`relative group ${isReversed ? 'lg:col-start-2' : ''}`}>
         <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+          {/* Corner accents */}
+          <CornerAccent position="top-left" />
+          <CornerAccent position="top-right" />
+          <CornerAccent position="bottom-left" />
+          <CornerAccent position="bottom-right" />
+          
           {/* Image with overlay */}
           <img 
             src={capability.image} 
@@ -77,12 +111,20 @@ const CapabilityCard = ({
           </div>
         </div>
         
-        {/* Decorative corner */}
+        {/* Decorative corner frame */}
         <div className="absolute -bottom-3 -right-3 w-24 h-24 border border-border/50 rounded-lg -z-10" />
+        <div className="absolute -top-3 -left-3 w-16 h-16 border border-primary/10 rounded-lg -z-10" />
       </div>
 
       {/* Content */}
-      <div className={`space-y-6 ${isReversed ? 'lg:col-start-1' : ''}`}>
+      <div className={`space-y-6 relative ${isReversed ? 'lg:col-start-1' : ''}`}>
+        {/* Corner accent on content */}
+        <div className="absolute -top-4 -left-4 w-6 h-6 opacity-30">
+          <svg viewBox="0 0 24 24" className="w-full h-full">
+            <path d="M0 0 L8 0 L8 1 L1 1 L1 8 L0 8 Z" fill="currentColor" className="text-primary" />
+          </svg>
+        </div>
+        
         {/* Subtitle */}
         <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
           {capability.subtitle}
@@ -98,8 +140,11 @@ const CapabilityCard = ({
           {capability.description}
         </p>
         
-        {/* Divider line */}
-        <div className="w-16 h-px bg-border mt-6" />
+        {/* Divider line with accent */}
+        <div className="flex items-center gap-2 mt-6">
+          <div className="w-2 h-2 rounded-full bg-primary/30" />
+          <div className="w-14 h-px bg-border" />
+        </div>
       </div>
     </motion.div>
   );
