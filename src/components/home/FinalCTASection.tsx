@@ -13,46 +13,46 @@ export const FinalCTASection = () => {
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.2]);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-40 lg:py-48 relative overflow-hidden">
       {/* Animated background glow */}
       <motion.div 
         style={{ scale: backgroundScale, opacity: backgroundOpacity }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-foreground/5 blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-foreground/[0.03] blur-[150px] pointer-events-none"
       />
       
-      <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-card/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative">
-        <div className="max-w-[520px] mx-auto text-center">
-          {/* Headline */}
+        <div className="max-w-[580px] mx-auto text-center">
+          {/* H2 - 44px */}
           <motion.h2 
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[clamp(24px,3.5vw,40px)] font-medium text-foreground leading-[1.15] tracking-[-0.02em] mb-5"
+            className="text-foreground mb-8"
           >
             Help Shape the Next Generation of Quant Infrastructure
           </motion.h2>
 
-          {/* Copy */}
+          {/* Body - 18px */}
           <motion.p 
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[16px] leading-[1.65] text-muted-foreground mb-10"
+            className="text-muted-foreground mb-12"
           >
             We're working closely with early institutional partners to define the future of AI-native financial systems.
           </motion.p>
 
-          {/* CTAs with stagger */}
+          {/* CTAs with consistent sizing */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-row items-center justify-center gap-3"
+            className="flex flex-row items-center justify-center gap-4"
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero" size="xl">

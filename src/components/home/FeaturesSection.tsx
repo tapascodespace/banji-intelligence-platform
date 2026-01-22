@@ -125,25 +125,25 @@ const CapabilityCard = ({
           </svg>
         </div>
         
-        {/* Subtitle */}
-        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
+        {/* Subtitle - 13px label */}
+        <span className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
           {capability.subtitle}
         </span>
         
-        {/* Title */}
-        <h3 className="font-display text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+        {/* Title - H3 28px */}
+        <h3 className="text-foreground leading-tight">
           {capability.title}
         </h3>
         
-        {/* Description */}
-        <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+        {/* Description - 18px body */}
+        <p className="text-muted-foreground max-w-md">
           {capability.description}
         </p>
         
         {/* Divider line with accent */}
-        <div className="flex items-center gap-2 mt-6">
-          <div className="w-2 h-2 rounded-full bg-primary/30" />
-          <div className="w-14 h-px bg-border" />
+        <div className="flex items-center gap-3 mt-8">
+          <div className="w-2 h-2 rounded-full bg-foreground/20" />
+          <div className="w-16 h-px bg-border" />
         </div>
       </div>
     </motion.div>
@@ -155,9 +155,9 @@ export const FeaturesSection = () => {
   const isInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="py-32 lg:py-40 relative overflow-hidden">
+    <section className="py-40 lg:py-48 relative overflow-hidden">
       {/* Subtle background */}
-      <div className="absolute inset-0 grid-pattern opacity-10" />
+      <div className="absolute inset-0 grid-pattern opacity-[0.015]" />
       
       <div className="container mx-auto px-6 relative">
         {/* Section Header */}
@@ -166,12 +166,12 @@ export const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-20 lg:mb-28"
+          className="max-w-2xl mb-24 lg:mb-32"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4 block">
+          <span className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 block">
             Core Capabilities
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1]">
+          <h2 className="text-foreground">
             Quantitative
             <br />
             <span className="text-muted-foreground">Excellence.</span>
