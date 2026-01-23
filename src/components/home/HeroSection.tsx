@@ -41,25 +41,25 @@ export const HeroSection = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
-          {/* Content with optical centering - generous breathing room */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Content with optical centering */}
           <motion.div
             style={{ y: contentY, opacity: contentOpacity }}
             className="max-w-[560px] text-center lg:text-left py-16"
           >
-            {/* H1 - 64px strict */}
+            {/* H1 - 48px Apple-style */}
             <motion.h1 
-              initial={{ opacity: 0, y: 48 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-foreground mb-8"
+              className="text-foreground mb-6"
             >
               <motion.span 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Infrastructure for
+                The future of
               </motion.span>
               <br />
               <motion.span 
@@ -67,35 +67,36 @@ export const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Thinking Markets
+                quantitative finance.
               </motion.span>
             </motion.h1>
 
             {/* Subheading - 18px body */}
             <motion.p
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-muted-foreground mb-12 max-w-[440px] mx-auto lg:mx-0"
+              className="text-muted-foreground mb-10 max-w-[440px] mx-auto lg:mx-0"
             >
-              BANJI is an AI-native operating system for quantitative research, trading and deployment built for speed, security, and explainability.
+              Quantora is an AI-powered platform for research, trading, and deployment. 
+              Built for speed. Designed for clarity.
             </motion.p>
 
-            {/* CTAs - 16px vertical padding, consistent spacing */}
+            {/* CTAs - consistent sizing */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-row gap-4 justify-center lg:justify-start"
             >
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button variant="hero" size="xl">
-                  Get Started Now
+                  Get Started
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button variant="heroOutline" size="xl">
-                  See Projects
+                  Watch Demo
                 </Button>
               </motion.div>
             </motion.div>

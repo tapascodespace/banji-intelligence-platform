@@ -11,28 +11,28 @@ const capabilities = [
     number: "01",
     title: "Adaptive Intelligence",
     subtitle: "Self-Optimizing Models",
-    description: "Machine learning systems designed to adapt to shifting market regimes — evolving with the data, not against it.",
+    description: "AI that learns and adapts to shifting market conditions — evolving with your data, not against it.",
     image: intelligenceImg,
   },
   {
     number: "02",
-    title: "Research Labs",
-    subtitle: "Collaborative Infrastructure",
-    description: "A unified environment for your entire team — from early-stage research to production-ready deployment.",
+    title: "Research Hub",
+    subtitle: "Unified Workspace",
+    description: "A single environment for your entire team — from early research to production deployment.",
     image: researchImg,
   },
   {
     number: "03",
-    title: "Modular Hub",
-    subtitle: "Plug-and-Play Architecture",
-    description: "A curated library of quantitative components. Compose, customize, and deploy — without rewriting infrastructure.",
+    title: "Component Library",
+    subtitle: "Modular Architecture",
+    description: "Pre-built quantitative components. Compose, customize, and deploy without rewriting infrastructure.",
     image: modularImg,
   },
   {
     number: "04",
     title: "Secure Execution",
-    subtitle: "Zero-Trust Infrastructure",
-    description: "Enterprise-grade security with complete audit trails and explainability at every layer. Built for institutional compliance.",
+    subtitle: "Enterprise Grade",
+    description: "Complete audit trails and explainability. Built for institutional compliance from day one.",
     image: securityImg,
   },
 ];
@@ -80,14 +80,14 @@ const CapabilityCard = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 48 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1 }}
-      className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${isReversed ? 'lg:grid-flow-dense' : ''}`}
+      className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:grid-flow-dense' : ''}`}
     >
       {/* Image */}
       <div className={`relative group ${isReversed ? 'lg:col-start-2' : ''}`}>
-        <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+        <div className="relative overflow-hidden rounded-xl aspect-[4/3]">
           {/* Corner accents */}
           <CornerAccent position="top-left" />
           <CornerAccent position="top-right" />
@@ -105,19 +105,19 @@ const CapabilityCard = ({
           
           {/* Number badge */}
           <div className="absolute top-6 left-6">
-            <span className="font-mono text-6xl font-bold text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
+            <span className="font-mono text-5xl font-bold text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
               {capability.number}
             </span>
           </div>
         </div>
         
         {/* Decorative corner frame */}
-        <div className="absolute -bottom-3 -right-3 w-24 h-24 border border-border/50 rounded-lg -z-10" />
-        <div className="absolute -top-3 -left-3 w-16 h-16 border border-primary/10 rounded-lg -z-10" />
+        <div className="absolute -bottom-3 -right-3 w-20 h-20 border border-border/50 rounded-lg -z-10" />
+        <div className="absolute -top-3 -left-3 w-14 h-14 border border-primary/10 rounded-lg -z-10" />
       </div>
 
       {/* Content */}
-      <div className={`space-y-6 relative ${isReversed ? 'lg:col-start-1' : ''}`}>
+      <div className={`space-y-5 relative ${isReversed ? 'lg:col-start-1' : ''}`}>
         {/* Corner accent on content */}
         <div className="absolute -top-4 -left-4 w-6 h-6 opacity-30">
           <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -125,7 +125,7 @@ const CapabilityCard = ({
           </svg>
         </div>
         
-        {/* Subtitle - 13px label */}
+        {/* Subtitle */}
         <span className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
           {capability.subtitle}
         </span>
@@ -140,10 +140,10 @@ const CapabilityCard = ({
           {capability.description}
         </p>
         
-        {/* Divider line with accent */}
-        <div className="flex items-center gap-3 mt-8">
+        {/* Divider line */}
+        <div className="flex items-center gap-3 mt-6">
           <div className="w-2 h-2 rounded-full bg-foreground/20" />
-          <div className="w-16 h-px bg-border" />
+          <div className="w-12 h-px bg-border" />
         </div>
       </div>
     </motion.div>
@@ -155,7 +155,7 @@ export const FeaturesSection = () => {
   const isInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="py-40 lg:py-48 relative overflow-hidden">
+    <section className="py-32 lg:py-40 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 grid-pattern opacity-[0.015]" />
       
@@ -166,20 +166,20 @@ export const FeaturesSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-24 lg:mb-32"
+          className="max-w-2xl mb-20 lg:mb-24"
         >
-          <span className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 block">
-            Core Capabilities
+          <span className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-5 block">
+            Platform
           </span>
           <h2 className="text-foreground">
-            Quantitative
+            Powerful capabilities.
             <br />
-            <span className="text-muted-foreground">Excellence.</span>
+            <span className="text-muted-foreground">Simple experience.</span>
           </h2>
         </motion.div>
 
         {/* Capabilities */}
-        <div className="space-y-24 lg:space-y-32">
+        <div className="space-y-20 lg:space-y-28">
           {capabilities.map((capability, index) => (
             <CapabilityCard 
               key={capability.number} 
@@ -195,14 +195,14 @@ export const FeaturesSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-24 lg:mt-32 text-center"
+          className="mt-20 lg:mt-28 text-center"
         >
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-border to-transparent mx-auto mb-8" />
+          <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent mx-auto mb-6" />
           <a
             href="#product"
             className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground font-medium transition-colors group"
           >
-            <span className="text-sm uppercase tracking-widest">Explore Full Architecture</span>
+            <span className="text-sm uppercase tracking-widest">Explore Platform</span>
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

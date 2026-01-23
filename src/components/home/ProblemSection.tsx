@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const problems = [
-  "Institutional teams rely on disconnected tools for data, research, execution, and compliance",
-  "Infrastructure was not designed for adaptive AI systems",
-  "Complexity increases operational risk, cost, and time-to-deployment",
+  "Teams rely on disconnected tools for data, research, execution, and compliance.",
+  "Current infrastructure wasn't designed for adaptive AI systems.",
+  "Growing complexity increases operational risk and time to market.",
 ];
 
 export const ProblemSection = () => {
@@ -17,7 +17,7 @@ export const ProblemSection = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={sectionRef} className="py-40 lg:py-48 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden">
       {/* Parallax background element */}
       <motion.div 
         style={{ y: backgroundY }}
@@ -26,34 +26,34 @@ export const ProblemSection = () => {
       
       <div className="container mx-auto px-6 relative">
         <div className="max-w-[600px] mx-auto text-center">
-          {/* Section label - 15px */}
+          {/* Section label */}
           <motion.span 
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-8 block"
+            className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 block"
           >
-            The Reality
+            The Challenge
           </motion.span>
 
-          {/* H2 - 44px */}
+          {/* H2 - 36px */}
           <motion.h2 
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-foreground mb-12"
+            className="text-foreground mb-10"
           >
-            Modern Quantitative Finance Is Built on Fragmentation
+            Finance runs on fragmented systems.
           </motion.h2>
 
-          {/* Problem bullets with stagger - 18px body */}
-          <div className="space-y-5 text-left max-w-[480px] mx-auto">
+          {/* Problem bullets - 18px body */}
+          <div className="space-y-4 text-left max-w-[480px] mx-auto">
             {problems.map((problem, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ 

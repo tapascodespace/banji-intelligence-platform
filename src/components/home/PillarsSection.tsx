@@ -4,23 +4,23 @@ import { useRef } from "react";
 const pillars = [
   {
     number: "01",
-    title: "Unified Intelligence Layer",
+    title: "Unified Platform",
     description: "One system connecting data, research, models, and execution.",
   },
   {
     number: "02",
-    title: "Adaptive AI Systems",
-    description: "Models that evolve with market regimes, not static assumptions.",
+    title: "Adaptive AI",
+    description: "Models that evolve with markets, not against them.",
   },
   {
     number: "03",
-    title: "Institution-Grade Control",
-    description: "Built for security, auditability, and regulatory environments.",
+    title: "Enterprise Security",
+    description: "Built for auditability and regulatory compliance.",
   },
   {
     number: "04",
-    title: "Composable Architecture",
-    description: "Modular by design — institutions choose how deep to integrate.",
+    title: "Modular Design",
+    description: "Choose how deep to integrate. Scale at your pace.",
   },
 ];
 
@@ -34,7 +34,7 @@ export const PillarsSection = () => {
   const gridY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section ref={sectionRef} className="py-40 lg:py-48 relative bg-card/20 overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 relative bg-card/20 overflow-hidden">
       {/* Animated grid background */}
       <motion.div 
         style={{ y: gridY }}
@@ -43,33 +43,33 @@ export const PillarsSection = () => {
 
       <div className="container mx-auto px-6 relative">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.span 
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-8 block"
+            className="text-[13px] uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 block"
           >
             What We're Building
           </motion.span>
           <motion.h2 
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-foreground"
           >
-            What BANJI Will Enable
+            Everything you need. Nothing you don't.
           </motion.h2>
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10 max-w-[1000px] mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 max-w-[1000px] mx-auto">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.number}
-              initial={{ opacity: 0, y: 32, scale: 0.95 }}
+              initial={{ opacity: 0, y: 24, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ 
@@ -80,21 +80,21 @@ export const PillarsSection = () => {
               whileHover={{ y: -4 }}
               className="text-center group"
             >
-              {/* Number with animation */}
+              {/* Number */}
               <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="text-[12px] font-mono text-muted-foreground/30 mb-6 block group-hover:text-muted-foreground/50 transition-colors"
+                className="text-[12px] font-mono text-muted-foreground/30 mb-5 block group-hover:text-muted-foreground/50 transition-colors"
               >
                 {pillar.number}
               </motion.span>
               
-              {/* Title - H3 28px */}
-              <h3 className="text-foreground mb-3 group-hover:text-foreground/90 transition-colors">
+              {/* Title - H4 22px */}
+              <h4 className="text-foreground mb-3 group-hover:text-foreground/90 transition-colors">
                 {pillar.title}
-              </h3>
+              </h4>
               
               {/* Description - 18px body */}
               <p className="text-muted-foreground text-[16px]">
@@ -103,7 +103,7 @@ export const PillarsSection = () => {
               
               {/* Hover indicator */}
               <motion.div 
-                className="w-8 h-px bg-foreground/15 mx-auto mt-6 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="w-8 h-px bg-foreground/15 mx-auto mt-5 opacity-0 group-hover:opacity-100 transition-opacity"
                 layoutId={`indicator-${pillar.number}`}
               />
             </motion.div>
