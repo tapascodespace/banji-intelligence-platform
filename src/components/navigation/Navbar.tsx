@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import banjiLogo from "@/assets/banji-logo.png";
+import quantoraLogo from "@/assets/quantora-logo.png";
 
 const navItems = [
   { label: "Challenge", href: "#problem" },
@@ -30,7 +30,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={banjiLogo} alt="Quantora" className="w-7 h-7 object-contain" />
+            <img src={quantoraLogo} alt="Quantora" className="w-7 h-7 object-contain" />
             <span className="text-[15px] font-semibold text-foreground tracking-[-0.01em]">Quantora</span>
           </motion.a>
 
