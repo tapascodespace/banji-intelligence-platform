@@ -13,6 +13,7 @@ import { MovingDots } from "@/components/animations/BackgroundEffects";
 import { GrainOverlay } from "@/components/animations/GrainOverlay";
 import { SectionDivider } from "@/components/home/SectionDivider";
 import { FloatingSideNav } from "@/components/navigation/FloatingSideNav";
+import { ImageGallery } from "@/components/home/ImageGallery";
 
 const Index = () => {
   return (
@@ -62,6 +63,8 @@ const Index = () => {
         <SectionDivider variant="glow" />
         
         <FinalCTASection />
+        
+        <ImageGallery />
       </main>
       <Footer />
     </div>
