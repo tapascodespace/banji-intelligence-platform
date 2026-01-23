@@ -13,7 +13,7 @@ export const FinalCTASection = () => {
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.2]);
 
   return (
-    <section ref={sectionRef} className="py-40 lg:py-48 relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden">
       {/* Animated background glow */}
       <motion.div 
         style={{ scale: backgroundScale, opacity: backgroundOpacity }}
@@ -24,31 +24,31 @@ export const FinalCTASection = () => {
 
       <div className="container mx-auto px-6 relative">
         <div className="max-w-[580px] mx-auto text-center">
-          {/* H2 - 44px */}
+          {/* H2 - 36px */}
           <motion.h2 
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-foreground mb-8"
+            className="text-foreground mb-6"
           >
-            Help Shape the Next Generation of Quant Infrastructure
+            Ready to transform your workflow?
           </motion.h2>
 
           {/* Body - 18px */}
           <motion.p 
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-muted-foreground mb-12"
+            className="text-muted-foreground mb-10"
           >
-            We're working closely with early institutional partners to define the future of AI-native financial systems.
+            Join the institutions shaping the future of quantitative finance with Quantora.
           </motion.p>
 
-          {/* CTAs with consistent sizing */}
+          {/* CTAs */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -56,12 +56,12 @@ export const FinalCTASection = () => {
           >
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero" size="xl">
-                Request a Demo
+                Get Started
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="heroOutline" size="xl">
-                Download Overview
+                Contact Sales
               </Button>
             </motion.div>
           </motion.div>

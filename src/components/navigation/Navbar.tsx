@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import banjiLogo from "@/assets/banji-logo.png";
 
 const navItems = [
-  { label: "Problem", href: "#problem" },
-  { label: "Market", href: "#market" },
+  { label: "Challenge", href: "#problem" },
+  { label: "Opportunity", href: "#market" },
   { label: "Vision", href: "#vision" },
-  { label: "Capabilities", href: "#capabilities" },
+  { label: "Platform", href: "#capabilities" },
 ];
 
 export const Navbar = () => {
@@ -30,11 +30,11 @@ export const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={banjiLogo} alt="BANJI" className="w-7 h-7 object-contain" />
-            <span className="text-[15px] font-medium text-foreground tracking-[-0.01em]">BANJI</span>
+            <img src={banjiLogo} alt="Quantora" className="w-7 h-7 object-contain" />
+            <span className="text-[15px] font-semibold text-foreground tracking-[-0.01em]">Quantora</span>
           </motion.a>
 
-          {/* Desktop Navigation - evenly spaced, 15px text */}
+          {/* Desktop Navigation - 15px text */}
           <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item, index) => (
               <motion.a
@@ -51,7 +51,7 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Buttons - consistent sizing */}
+          {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="minimal" size="sm">
@@ -60,7 +60,7 @@ export const Navbar = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero" size="sm">
-                Request Demo
+                Get Started
               </Button>
             </motion.div>
           </div>
@@ -104,7 +104,7 @@ export const Navbar = () => {
                   Sign In
                 </Button>
                 <Button variant="hero" className="w-full" size="lg">
-                  Request Demo
+                  Get Started
                 </Button>
               </div>
             </div>

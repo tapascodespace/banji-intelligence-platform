@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const sections = [
   { id: "hero", label: "Home" },
-  { id: "problem", label: "Problem" },
-  { id: "market", label: "Market" },
+  { id: "problem", label: "Challenge" },
+  { id: "market", label: "Opportunity" },
   { id: "vision", label: "Vision" },
-  { id: "capabilities", label: "Capabilities" },
+  { id: "capabilities", label: "Platform" },
 ];
 
 export const FloatingSideNav = () => {
